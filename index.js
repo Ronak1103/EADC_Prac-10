@@ -10,9 +10,9 @@ if (process.env.PORT) {
   PORT = 8000;
 }
 var Cloudant = require('@cloudant/cloudant');
-var url = "https://apikey-v2-197dnkn3t48agl1wuzpj91l7lo4dkifrzhim8wjf5ykg:0f75c4be5fda84f99a0d4c582ef21b89@3447fb1b-02ae-4331-923a-607d107471ea-bluemix.cloudantnosqldb.appdomain.cloud";
-var username = "apikey-v2-197dnkn3t48agl1wuzpj91l7lo4dkifrzhim8wjf5ykg";
-var password = "0f75c4be5fda84f99a0d4c582ef21b89";
+var url = "https://apikey-v2-p15amtaqclggzb4hcl1xlej2rg7ytranbypkc5zlyu1:0bc22ac6870aff3fd8f3563d386d0555@99a9aa67-d68d-4837-8dac-c90f34290374-bluemix.cloudantnosqldb.appdomain.cloud";
+var username = "apikey-v2-p15amtaqclggzb4hcl1xlej2rg7ytranbypkc5zlyu1";
+var password = "0bc22ac6870aff3fd8f3563d386d0555";
 var app = express();
 const bodyParser = require('body-parser');
 //const cors = require('cors');
@@ -180,7 +180,7 @@ var id,rev,database_name;
 database_name=req.body.db;
 id=req.body.id;
 rev=req.body.rev;
-name = req.body.name;
+name1 = req.body.name1;
 address =req.body.address;
 phone= req.body.phone;
 age= req.body.age;
@@ -190,7 +190,7 @@ Cloudant({ url: url, username: username, password: password }, function(err, clo
   }
 console.log(pong); // {"couchdb":"Welcome","version": ..
 
-cloudant.use(database_name).insert({ _id:id , _rev: rev, "name": name , "age": age, "address": address, "phone": phone }, (err, data) => {
+cloudant.use(database_name).insert({ _id:id , _rev: rev, "name": name1 , "age": age, "address": address, "phone": phone }, (err, data) => {
       if (err) {
         res.send(err);
       } else {
